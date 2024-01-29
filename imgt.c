@@ -557,6 +557,12 @@ void img_scale(const float cw, const float ch, const bool kaspr, img_t *img)
 
 int main(int argc, char *argv[])
 {
+	if (argc != 2)
+	{
+		fprintf(stderr, "Get image dimension and dpi\n");
+		fprintf(stderr, "\e[31m%s\e[0m <image>\n", __progname);
+		exit(1);
+	}
 	const char *fn = argv[1];
 	img_t *img = calloc(1, sizeof(img_t));
 	img->typ = img_typ(fn);
